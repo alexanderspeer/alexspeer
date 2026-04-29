@@ -6,7 +6,7 @@ const PROJECTS_CONFIG = [
         jsonFile: '3dbrain.json',
         hasVideo: true,
         order: 1,
-        displayPriority: 7, // Personal Website
+        displayPriority: 8, // Personal Website
         liveLink: 'https://alexspeer.com'
     },
     {
@@ -14,7 +14,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'calliope.json',
         hasVideo: true,
         order: 2,
-        displayPriority: 8, // Calliope (Vocabulary Enhancement Platform)
+        displayPriority: 9, // Calliope (Vocabulary Enhancement Platform)
         liveLink: 'https://calliope-ccdc166d3d1e.herokuapp.com/static/index.html'
     },
     {
@@ -22,14 +22,14 @@ const PROJECTS_CONFIG = [
         jsonFile: 'clio.json',
         hasVideo: false,
         order: 3,
-        displayPriority: 12 // Clio
+        displayPriority: 13 // Clio
     },
     {
         folder: 'euterpe',
         jsonFile: 'euterpe.json',
         hasVideo: true,
         order: 4,
-        displayPriority: 10, // Euterpe (Spotify Web App)
+        displayPriority: 11, // Euterpe (Spotify Web App)
         liveLink: 'https://euterpe-c0dcbd4f17ec.herokuapp.com/',
         githubLink: 'https://github.com/alexanderspeer/euterpe'
     },
@@ -38,14 +38,14 @@ const PROJECTS_CONFIG = [
         jsonFile: 'alarm-clock.json',
         hasVideo: true,
         order: 5,
-        displayPriority: 9 // Alarm Clock
+        displayPriority: 10 // Alarm Clock
     },
     {
         folder: 'facemash',
         jsonFile: 'columbia-facemash.json',
         hasVideo: false,
         order: 6,
-        displayPriority: 11, // Columbia FaceMash
+        displayPriority: 12, // Columbia FaceMash
         liveLink: 'https://columbia-facemash-46dd96c179aa.herokuapp.com/login'
     },
     {
@@ -53,7 +53,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'bookshelf.json',
         hasVideo: true,
         order: 7,
-        displayPriority: 4, // My Personal Bookshelf (That Everyone Can Use)
+        displayPriority: 5, // My Personal Bookshelf (That Everyone Can Use)
         liveLink: 'https://bookshelf-hermes-4f6d58f1165f.herokuapp.com/',
         githubLink: 'https://github.com/alexanderspeer/bookshelf'
     },
@@ -80,7 +80,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'photography.json',
         hasVideo: false,
         order: 10,
-        displayPriority: 13, // Photographic Journal (lowest)
+        displayPriority: 14, // Photographic Journal (lowest)
         liveLink: 'https://alexanderspeer.github.io/photography/',
         githubLink: 'https://github.com/alexanderspeer/photography'
     },
@@ -89,7 +89,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'buzzer.json',
         hasVideo: false,
         order: 11,
-        displayPriority: 5, // DIY MP3 Player
+        displayPriority: 6, // DIY MP3 Player
         githubLink: 'https://github.com/alexanderspeer/buzzer-mp3',
         youtubeLink: 'https://www.youtube.com/watch?v=agBdbV-dPpw'
     },
@@ -102,11 +102,20 @@ const PROJECTS_CONFIG = [
         githubLink: 'https://github.com/alexanderspeer/computational-neuroscience'
     },
     {
+        folder: 'pca',
+        jsonFile: 'pca.json',
+        hasVideo: false,
+        order: 14,
+        displayPriority: 4, // PCA-Based Subspace Analysis of Motor-Imagination EEG Signals
+        liveLink: 'pages/projects/pca/Principal_Component_Analysis_for_Brainwave_Activity.pdf',
+        githubLink: 'https://github.com/alexanderspeer/PCA-Based-Subspace-Analysis-of-Motor-Imagination-EEG'
+    },
+    {
         folder: 'eegmaster',
         jsonFile: 'eegmaster.json',
         hasVideo: false,
         order: 13,
-        displayPriority: 6, // EEG Pattern Recognition Trainer
+        displayPriority: 7, // EEG Pattern Recognition Trainer
         liveLink: 'https://alexanderspeer.github.io/eeg-master/',
         githubLink: 'https://github.com/alexanderspeer?tab=repositories'
     }
@@ -224,6 +233,7 @@ function getGalleryImages(folder) {
         'photography': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
         'buzzer': [1, 2, 3, 4],
         'compneuro': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+        'pca': [1, 2, 3, 4],
         'eegmaster': [1, 2, 3, 4, 5, 6]
     };
 
