@@ -6,7 +6,7 @@ const PROJECTS_CONFIG = [
         jsonFile: '3dbrain.json',
         hasVideo: true,
         order: 1,
-        displayPriority: 8, // Personal Website
+        displayPriority: 9, // Personal Website
         liveLink: 'https://alexspeer.com'
     },
     {
@@ -14,7 +14,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'calliope.json',
         hasVideo: true,
         order: 2,
-        displayPriority: 9, // Calliope (Vocabulary Enhancement Platform)
+        displayPriority: 10, // Calliope (Vocabulary Enhancement Platform)
         liveLink: 'https://calliope-ccdc166d3d1e.herokuapp.com/static/index.html'
     },
     {
@@ -22,14 +22,14 @@ const PROJECTS_CONFIG = [
         jsonFile: 'clio.json',
         hasVideo: false,
         order: 3,
-        displayPriority: 13 // Clio
+        displayPriority: 14 // Clio
     },
     {
         folder: 'euterpe',
         jsonFile: 'euterpe.json',
         hasVideo: true,
         order: 4,
-        displayPriority: 11, // Euterpe (Spotify Web App)
+        displayPriority: 12, // Euterpe (Spotify Web App)
         liveLink: 'https://euterpe-c0dcbd4f17ec.herokuapp.com/',
         githubLink: 'https://github.com/alexanderspeer/euterpe'
     },
@@ -38,14 +38,14 @@ const PROJECTS_CONFIG = [
         jsonFile: 'alarm-clock.json',
         hasVideo: true,
         order: 5,
-        displayPriority: 10 // Alarm Clock
+        displayPriority: 11 // Alarm Clock
     },
     {
         folder: 'facemash',
         jsonFile: 'columbia-facemash.json',
         hasVideo: false,
         order: 6,
-        displayPriority: 12, // Columbia FaceMash
+        displayPriority: 13, // Columbia FaceMash
         liveLink: 'https://columbia-facemash-46dd96c179aa.herokuapp.com/login'
     },
     {
@@ -53,9 +53,17 @@ const PROJECTS_CONFIG = [
         jsonFile: 'bookshelf.json',
         hasVideo: true,
         order: 7,
-        displayPriority: 5, // My Personal Bookshelf (That Everyone Can Use)
+        displayPriority: 6, // My Personal Bookshelf (That Everyone Can Use)
         liveLink: 'https://bookshelf-hermes-4f6d58f1165f.herokuapp.com/',
         githubLink: 'https://github.com/alexanderspeer/bookshelf'
+    },
+    {
+        folder: 'mmni',
+        jsonFile: 'mmni.json',
+        hasVideo: false,
+        order: 15,
+        displayPriority: 5, // Feature-Engineered MRI Classification of FCD
+        liveLink: 'pages/projects/mmni/MMNI_final__Shortened_.pdf'
     },
     {
         folder: 'blindsight',
@@ -80,7 +88,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'photography.json',
         hasVideo: false,
         order: 10,
-        displayPriority: 14, // Photographic Journal (lowest)
+        displayPriority: 15, // Photographic Journal (lowest)
         liveLink: 'https://alexanderspeer.github.io/photography/',
         githubLink: 'https://github.com/alexanderspeer/photography'
     },
@@ -89,7 +97,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'buzzer.json',
         hasVideo: false,
         order: 11,
-        displayPriority: 6, // DIY MP3 Player
+        displayPriority: 7, // DIY MP3 Player
         githubLink: 'https://github.com/alexanderspeer/buzzer-mp3',
         youtubeLink: 'https://www.youtube.com/watch?v=agBdbV-dPpw'
     },
@@ -115,7 +123,7 @@ const PROJECTS_CONFIG = [
         jsonFile: 'eegmaster.json',
         hasVideo: false,
         order: 13,
-        displayPriority: 7, // EEG Pattern Recognition Trainer
+        displayPriority: 8, // EEG Pattern Recognition Trainer
         liveLink: 'https://alexanderspeer.github.io/eeg-master/',
         githubLink: 'https://github.com/alexanderspeer?tab=repositories'
     }
@@ -234,7 +242,8 @@ function getGalleryImages(folder) {
         'buzzer': [1, 2, 3, 4],
         'compneuro': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
         'pca': [1, 2, 3, 4],
-        'eegmaster': [1, 2, 3, 4, 5, 6]
+        'eegmaster': [1, 2, 3, 4, 5, 6],
+        'mmni': [1, 2, 3, 4, 5, 6, 7, 8]
     };
 
     const imageNumbers = galleryImages[folder] || [];
