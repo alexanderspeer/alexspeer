@@ -25,11 +25,23 @@ const experienceData = {
     ],
     work_experience: [
         {
+            title: "Claude Builder Ambassador",
+            organization: "Anthropic",
+            link: "https://www.anthropic.com/",
+            location: "New York, NY",
+            date_range: "January 2026 – Present",
+            details: [
+                "Led technical AI workshops, live coding demos, and campus presentations showcasing Claude Code, multimodal AI workflows, and rapid prototyping techniques to student audiences across engineering, neuroscience, and entrepreneurship communities.",
+                "Demonstrated real-world AI-assisted software and research projects, including a biologically inspired visual cortex simulation and a full-stack book-ranking platform, highlighting Claude's role in Python migration, UI prototyping, debugging, and iterative development workflows.",
+                "Organized and promoted Claude Builder Club programming including hackathons, coding workshops, and developer outreach initiatives, helping grow a campus AI builder community centered on applied AI development and responsible tool usage."
+            ]
+        },
+        {
             title: "Undergraduate Research Assistant",
             organization: "Ultrasound and Elasticity Imaging Laboratory (UEIL)",
             link: "https://ueil.bme.columbia.edu/",
             location: "Columbia University, New York, NY",
-            date_range: "October 2025 – Present",
+            date_range: "October 2025 – January 2026",
             details: [
                 "Supported focused ultrasound neuromodulation experiments on murine models, calibrating transducer parameters (3.1 MHz, 10 Hz PRF, 1 ms pulses) and verifying sciatic nerve targeting through displacement imaging and motor response confirmation.",
                 "Collected and analyzed behavioral data (von Frey thresholds, Rotarod, CatWalk) to quantify analgesic effects of FUS vs. ibuprofen, identifying significant post-sonication improvements in withdrawal thresholds.",
@@ -53,7 +65,7 @@ const experienceData = {
             organization: "AWEAR",
             link: "https://www.awear.us/",
             location: "San Francisco, CA",
-            date_range: "June 2025 – Present",
+            date_range: "June 2025 – October 2025",
             details: [
                 "Owned end-to-end ML development for the BCI platform, applying EEG preprocessing (filtering, artifact rejection, FFT/PSD features) and training classifiers for cognitive/affective states, achieving 86% mean accuracy on valence/arousal.",
                 "Built a cross-platform app for real-time brainwave visualization with seizure-risk and sleep anomaly detection, stress/arousal monitoring, and dashboards, deployed to 200+ beta users.",
@@ -136,6 +148,7 @@ function getLogoPath(organization) {
         'Columbia University Neuroscience Summer Lab': 'columbia.png',
         'Clarkston High School': 'clarkston.png',
         NeuroNYC: 'neuronyc.png',
+        Anthropic: 'anthropic.png',
         AWEAR: 'awear.png',
         'Sama Therapeutics': 'sama.png',
         'Harvard Medical School & Massachusetts General Hospital': 'havard.png',
