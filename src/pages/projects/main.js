@@ -15,14 +15,15 @@ const PROJECTS_CONFIG = [
         hasVideo: true,
         order: 2,
         displayPriority: 10, // Calliope (Vocabulary Enhancement Platform)
-        liveLink: 'https://calliope-ccdc166d3d1e.herokuapp.com/static/index.html'
+        liveLink: 'pages/projects/broken/depreciated.html'
     },
     {
         folder: 'clio',
         jsonFile: 'clio.json',
         hasVideo: false,
         order: 3,
-        displayPriority: 14 // Clio
+        displayPriority: 14, // Clio
+        liveLink: 'pages/projects/broken/depreciated.html'
     },
     {
         folder: 'euterpe',
@@ -30,7 +31,7 @@ const PROJECTS_CONFIG = [
         hasVideo: true,
         order: 4,
         displayPriority: 12, // Euterpe (Spotify Web App)
-        liveLink: 'https://euterpe-c0dcbd4f17ec.herokuapp.com/',
+        liveLink: 'pages/projects/broken/depreciated.html',
         githubLink: 'https://github.com/alexanderspeer/euterpe'
     },
     {
@@ -46,7 +47,7 @@ const PROJECTS_CONFIG = [
         hasVideo: false,
         order: 6,
         displayPriority: 13, // Columbia FaceMash
-        liveLink: 'https://columbia-facemash-46dd96c179aa.herokuapp.com/login'
+        liveLink: 'pages/projects/broken/depreciated.html'
     },
     {
         folder: 'bookshelf',
@@ -54,7 +55,7 @@ const PROJECTS_CONFIG = [
         hasVideo: true,
         order: 7,
         displayPriority: 6, // My Personal Bookshelf (That Everyone Can Use)
-        liveLink: 'https://bookshelf-hermes-4f6d58f1165f.herokuapp.com/',
+        liveLink: 'pages/projects/broken/depreciated.html',
         githubLink: 'https://github.com/alexanderspeer/bookshelf'
     },
     {
