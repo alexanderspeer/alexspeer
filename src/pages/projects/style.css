@@ -135,13 +135,11 @@ body {
 
 /* Filter Bar */
 .filter-bar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
     margin: 0 auto 40px auto;
-    padding: 20px;
+    padding: 14px;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: brightness(0.9) blur(20px);
     -webkit-backdrop-filter: brightness(0.9) blur(20px);
@@ -154,12 +152,19 @@ body {
     transform: translateZ(0);
 }
 
+/* Hide empty filter shell — padding + border-radius make it look like a loading circle */
+.filter-bar:has(#filter-tags:empty),
+.filter-bar.is-loading {
+    display: none;
+}
+
 .filter-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .filter-tag {
@@ -270,6 +275,11 @@ body {
     transition: opacity 0.3s ease;
     pointer-events: none;
     z-index: 2;
+}
+
+/* Hide native browser media UI / loading spinner on hover videos */
+.project-video::-webkit-media-controls {
+    display: none !important;
 }
 
 /* Gallery Navigation Arrows */
@@ -607,9 +617,7 @@ body {
     }
 
     .filter-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
+        padding: 12px;
     }
 
     .projects-grid {

@@ -275,10 +275,139 @@ const ALLOWED_TAGS = new Set([
     'MATLAB'
 ]);
 
+// Measure wrapped tag width offscreen so the live bar never flashes full-width
+function measureFilterTagsWidth(filterTagsContainer, maxInnerWidth) {
+    const sourceStyle = getComputedStyle(filterTagsContainer);
+    const probe = document.createElement('div');
+    probe.className = filterTagsContainer.className;
+    probe.setAttribute('aria-hidden', 'true');
+    probe.style.position = 'absolute';
+    probe.style.left = '-99999px';
+    probe.style.top = '0';
+    probe.style.visibility = 'hidden';
+    probe.style.pointerEvents = 'none';
+    probe.style.display = 'flex';
+    probe.style.flexWrap = 'wrap';
+    probe.style.alignItems = 'center';
+    probe.style.justifyContent = 'flex-start';
+    probe.style.gap = sourceStyle.gap || '8px';
+    probe.style.width = `${maxInnerWidth}px`;
+    probe.style.boxSizing = 'border-box';
+    probe.style.font = sourceStyle.font;
+
+    Array.from(filterTagsContainer.children).forEach((tag) => {
+        probe.appendChild(tag.cloneNode(true));
+    });
+
+    document.body.appendChild(probe);
+    void probe.offsetWidth;
+
+    const probeTags = Array.from(probe.children);
+
+    const rowKeyForTop = (top, keys) => {
+        const rounded = Math.round(top);
+        const match = keys.find((key) => Math.abs(key - rounded) <= 2);
+        return match ?? rounded;
+    };
+
+    const getRowMetrics = () => {
+        const rows = new Map();
+        probeTags.forEach((tag) => {
+            const rect = tag.getBoundingClientRect();
+            const key = rowKeyForTop(rect.top, [...rows.keys()]);
+            const current = rows.get(key);
+            if (!current) {
+                rows.set(key, { start: rect.left, end: rect.right });
+            } else {
+                current.start = Math.min(current.start, rect.left);
+                current.end = Math.max(current.end, rect.right);
+            }
+        });
+        let maxRowWidth = 0;
+        rows.forEach((row) => {
+            maxRowWidth = Math.max(maxRowWidth, row.end - row.start);
+        });
+        return { rowCount: rows.size, maxRowWidth };
+    };
+
+    const initial = getRowMetrics();
+    let nextWidth = Math.min(maxInnerWidth, Math.ceil(initial.maxRowWidth) + 2);
+
+    for (let attempt = 0; attempt < 8; attempt++) {
+        probe.style.width = `${nextWidth}px`;
+        void probe.offsetWidth;
+        const metrics = getRowMetrics();
+        if (metrics.rowCount <= initial.rowCount) break;
+        nextWidth = Math.min(maxInnerWidth, nextWidth + 4);
+    }
+
+    probe.remove();
+    return nextWidth;
+}
+
+function getFilterBarAvailableWidth(filterBar) {
+    const parent = filterBar.parentElement;
+    if (!parent) return 0;
+
+    const parentStyle = getComputedStyle(parent);
+    const parentWidth =
+        parent.clientWidth
+        - (parseFloat(parentStyle.paddingLeft) || 0)
+        - (parseFloat(parentStyle.paddingRight) || 0);
+    if (parentWidth <= 0) return 0;
+
+    const styles = getComputedStyle(filterBar);
+    const padX = (parseFloat(styles.paddingLeft) || 0) + (parseFloat(styles.paddingRight) || 0);
+    const borderX = (parseFloat(styles.borderLeftWidth) || 0) + (parseFloat(styles.borderRightWidth) || 0);
+    return Math.max(0, parentWidth - padX - borderX);
+}
+
+// Shrink-wrap filter bar to the widest tag row so padding stays equal on all sides
+function shrinkWrapFilterBar() {
+    const filterBar = document.getElementById('filter-bar');
+    const filterTagsContainer = document.getElementById('filter-tags');
+    if (!filterBar || !filterTagsContainer || filterTagsContainer.children.length === 0) return;
+
+    const maxInnerWidth = getFilterBarAvailableWidth(filterBar);
+    if (maxInnerWidth <= 0) return;
+
+    const width = measureFilterTagsWidth(filterTagsContainer, maxInnerWidth);
+    filterTagsContainer.style.width = `${width}px`;
+    filterTagsContainer.style.justifyContent = 'center';
+    filterBar.style.width = 'fit-content';
+}
+
+function scheduleShrinkWrapFilterBar() {
+    clearTimeout(filterBarResizeTimer);
+    filterBarResizeTimer = setTimeout(() => {
+        requestAnimationFrame(() => {
+            shrinkWrapFilterBar();
+        });
+    }, 100);
+}
+
+let filterBarResizeTimer = null;
+let filterBarResizeObserver = null;
+
+window.addEventListener('resize', scheduleShrinkWrapFilterBar);
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', scheduleShrinkWrapFilterBar);
+}
+
+function observeFilterBarParent(filterBar) {
+    if (filterBarResizeObserver || !filterBar?.parentElement || typeof ResizeObserver === 'undefined') return;
+    filterBarResizeObserver = new ResizeObserver(() => scheduleShrinkWrapFilterBar());
+    filterBarResizeObserver.observe(filterBar.parentElement);
+}
+
 // Render filter bar
 function renderFilterBar() {
+    const filterBar = document.getElementById('filter-bar');
     const filterTagsContainer = document.getElementById('filter-tags');
     filterTagsContainer.innerHTML = '';
+    filterTagsContainer.style.width = '';
+    filterTagsContainer.style.justifyContent = '';
+    filterBar.style.width = '';
 
     // Add "All" filter
     const allTag = document.createElement('div');
@@ -316,7 +445,11 @@ function renderFilterBar() {
         tag.addEventListener('click', () => toggleFilter(tech));
         filterTagsContainer.appendChild(tag);
     });
-    
+
+    // Size while still hidden, then reveal at the final shrink-wrapped width
+    observeFilterBarParent(filterBar);
+    shrinkWrapFilterBar();
+    filterBar.classList.remove('is-loading');
 }
 
 // Toggle filter
@@ -529,18 +662,17 @@ function createMediaHtml(project, galleryImages) {
             posterImage = galleryImages[0];
         }
     }
-    // Add cache-busting query parameter to force video reload when files are updated
-    const videoWebm = `pages/projects/${folder}/hover/${folder}_preview.webm?v=${Date.now()}`;
+    const videoWebm = `pages/projects/${folder}/hover/${folder}_preview.webm`;
 
     let html = `
         <div class="project-media-container" data-folder="${folder}" data-has-video="${hasVideo}">
             <img src="${posterImage}" alt="${title}" class="project-media project-poster" data-gallery-index="-1">
     `;
 
-    // Add video overlay if available
+    // Add video overlay if available (preload none so browsers don't show a native loading spinner)
     if (hasVideo) {
         html += `
-            <video class="project-video" muted loop playsinline preload="auto">
+            <video class="project-video" muted loop playsinline preload="none">
                 <source src="${videoWebm}" type="video/webm">
             </video>
         `;

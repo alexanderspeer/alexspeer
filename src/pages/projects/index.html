@@ -42,11 +42,9 @@
 
     <!-- Main Content -->
     <div class="page-container">
-        <!-- Filter Bar -->
-        <div id="filter-bar" class="filter-bar">
-            <div id="filter-tags" class="filter-tags">
-                <!-- Filter tags will be added here dynamically -->
-            </div>
+        <!-- Filter Bar (hidden until tags are rendered to avoid empty capsule flash) -->
+        <div id="filter-bar" class="filter-bar is-loading">
+            <div id="filter-tags" class="filter-tags"></div>
         </div>
 
         <!-- Projects Grid -->
@@ -61,7 +59,7 @@
         <div class="gallery-modal-content">
             <button class="gallery-close">&times;</button>
             <button class="gallery-nav gallery-prev">&#8249;</button>
-            <img id="gallery-image" src="" alt="Project Gallery">
+            <img id="gallery-image" alt="Project Gallery">
             <button class="gallery-nav gallery-next">&#8250;</button>
             <div class="gallery-counter">
                 <span id="gallery-current">1</span> / <span id="gallery-total">1</span>
