@@ -1,12 +1,11 @@
-Hello! My name is Alexander Speer, and I am a senior at Columbia University specializing in Neural Engineering. My interest in the brain is equal parts scientific and personal, grounded in moments that revealed just how real its mysteries can be.
+Hello! My name is Alexander Speer. This past May I was lucky enough to escape Columbia University with a degree in Cognitive Science and Neural Engineering. My interest in the brain is equal parts scientific and personal, grounded in moments that reveal just how real its mysteries can be. 
 
 I was in high school when I witnessed my father's first seizure. The root of the word "epilepsy" means "to be seized," and standing at his bedside, I felt seized too – not just by fear, but by a profound need to understand what was happening. Since then, I've tried to orient my life toward engineering solutions to such disorders.
 
-Currently, I work in Columbia's <a href="https://ueil.bme.columbia.edu/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; text-decoration-thickness: 1px;">Ultrasound and Elasticity Imaging Laboratory (UEIL)</a>, where I study focused ultrasound neuromodulation to understand pain and neural control. I also lead as Head of Events & Experiences at <a href="https://neuro-nyc.org/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; text-decoration-thickness: 1px;">NeuroNYC</a>, connecting researchers, founders, and students across New York's neurotech scene.
+I started my post-grad journey as the first hire in Dr. Friedman's lab at WashU St. Louis. While I’m generous enough to delegate the whole ‘neurosurgery’ business to him, that leaves me holding the bag in terms of  the actual ‘research.’ What that looks like on a day to day basis varies, but I’ve managed to get my hands dirty thus far working on intra-op neural recording pipelines, developing custom hardware for awake surgeries (DBS + sEEG), and making sense of MER and iEEG signals.
 
-My work spans brain–computer interface design, neural signal processing, and machine learning, with my long-term goals focused on developing technologies that restore sensory function and alleviate neurological disorders.
+Somewhere between <a href="https://www.cs.columbia.edu/~sedwards/classes/2023/4840-spring/index.html" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; text-decoration-thickness: 1px;">bugging</a> (aka debugging) BCI2000, preparing for the OR, navigating IRB protocols, I’m getting a crash course in exactly what it takes to build a human neurophysiology lab from the ground up.
 
-Another passion of mine is ancient history. Ever since I first read about Alexander the Great, I've had a bit of a one-sided feud with him. He may have claimed the epithet "the Great" a bit prematurely; I'm hoping to earn mine through the slow and careful conquest of neurons, not nations.
+Another passion of mine is ancient history. Ever since I first read about Alexander the Great, I've had a bit of a one-sided feud with him. I believe he may have claimed the epithet "the Great" a bit prematurely; I'm hoping to earn mine through the slow and careful conquest of neurons, not nations.
 
 Let’s see how I stack up against my predecessor so far:
-
