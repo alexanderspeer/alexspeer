@@ -25,27 +25,27 @@ const experienceData = {
     ],
     work_experience: [
         {
+            title: "Research Assistant, Dept. of Neurosurgery",
+            organization: "Washington University in St. Louis",
+            link: "https://neurosurgery.wustl.edu/",
+            location: "St. Louis",
+            date_range: "July 2026 – Present",
+            details: [
+                "Coordinate intraoperative human neurophysiology experiments during awake DBS and sEEG procedures, acquiring synchronized intracranial electrophysiology, kinematic, and behavioral data to study human motor circuits.",
+                "Develop custom behavioral tasks, hardware, and multimodal acquisition pipelines using BCI2000, NeuroOmega, Python/C++, Arduino, and CAD, integrating neural recordings with motion, EMG, and behavioral measurements.",
+                "Build the lab's prospective functional neurosurgery research infrastructure from the ground up, including IRB protocols, BIDS-structured data pipelines, quality control, and preliminary analysis of intracranial neural and behavioral data."
+            ]
+        },
+        {
             title: "Claude Builder Ambassador",
             organization: "Anthropic",
             link: "https://www.anthropic.com/",
             location: "New York, NY",
-            date_range: "January 2026 – Present",
+            date_range: "January 2026 – June 2026",
             details: [
                 "Led technical AI workshops, live coding demos, and campus presentations showcasing Claude Code, multimodal AI workflows, and rapid prototyping techniques to student audiences across engineering, neuroscience, and entrepreneurship communities.",
                 "Demonstrated real-world AI-assisted software and research projects, including a biologically inspired visual cortex simulation and a full-stack book-ranking platform, highlighting Claude's role in Python migration, UI prototyping, debugging, and iterative development workflows.",
                 "Organized and promoted Claude Builder Club programming including hackathons, coding workshops, and developer outreach initiatives, helping grow a campus AI builder community centered on applied AI development and responsible tool usage."
-            ]
-        },
-        {
-            title: "Undergraduate Research Assistant",
-            organization: "Ultrasound and Elasticity Imaging Laboratory (UEIL)",
-            link: "https://ueil.bme.columbia.edu/",
-            location: "Columbia University, New York, NY",
-            date_range: "October 2025 – January 2026",
-            details: [
-                "Supported focused ultrasound neuromodulation experiments on murine models, calibrating transducer parameters (3.1 MHz, 10 Hz PRF, 1 ms pulses) and verifying sciatic nerve targeting through displacement imaging and motor response confirmation.",
-                "Collected and analyzed behavioral data (von Frey thresholds, Rotarod, CatWalk) to quantify analgesic effects of FUS vs. ibuprofen, identifying significant post-sonication improvements in withdrawal thresholds.",
-                "Processed longitudinal datasets across 15-day trials, applying ANOVA and Mann–Whitney U tests to evaluate treatment efficacy and motor performance consistency."
             ]
         },
         {
@@ -144,7 +144,6 @@ const experienceData = {
 function getLogoPath(organization) {
     const logoMap = {
         'Columbia University': 'columbia.png',
-        'Ultrasound and Elasticity Imaging Laboratory (UEIL)': 'columbia.png',
         'Columbia University Neuroscience Summer Lab': 'columbia.png',
         'Clarkston High School': 'clarkston.png',
         NeuroNYC: 'neuronyc.png',
@@ -154,6 +153,7 @@ function getLogoPath(organization) {
         'Harvard Medical School & Massachusetts General Hospital': 'havard.png',
         'Con Edison': 'conedison.png',
         'Virginia Tile': 'virginiatile.png',
+        'Washington University in St. Louis': 'WashU.webp',
         Clarkston: 'clarkston.png'
     };
 
