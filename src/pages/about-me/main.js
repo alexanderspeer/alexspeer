@@ -294,9 +294,32 @@ function setupMobileNavigation() {
     document.body.appendChild(dropdown);
 }
 
+function setupScrollHint() {
+    const scrollHint = document.getElementById('scroll-hint');
+    if (!scrollHint) return;
+
+    const dismissHint = () => {
+        scrollHint.classList.add('hidden');
+        window.removeEventListener('scroll', dismissHint);
+        window.removeEventListener('touchmove', dismissHint);
+        scrollHint.addEventListener('transitionend', () => {
+            scrollHint.remove();
+        }, { once: true });
+    };
+
+    if (window.scrollY > 20) {
+        scrollHint.remove();
+        return;
+    }
+
+    window.addEventListener('scroll', dismissHint, { passive: true });
+    window.addEventListener('touchmove', dismissHint, { passive: true });
+}
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     loadIntroduction();
     loadTimeline();
     setupMobileNavigation();
+    setupScrollHint();
 });
