@@ -31,9 +31,9 @@ const experienceData = {
             location: "St. Louis",
             date_range: "July 2026 – Present",
             details: [
-                "Coordinate intraoperative human neurophysiology experiments during awake DBS and sEEG procedures, acquiring synchronized intracranial electrophysiology, kinematic, and behavioral data to study human motor circuits.",
-                "Develop custom behavioral tasks, hardware, and multimodal acquisition pipelines using BCI2000, NeuroOmega, Python/C++, Arduino, and CAD, integrating neural recordings with motion, EMG, and behavioral measurements.",
-                "Build the lab's prospective functional neurosurgery research infrastructure from the ground up, including IRB protocols, BIDS-structured data pipelines, quality control, and preliminary analysis of intracranial neural and behavioral data."
+                "Conduct awake human in-vivo electrophysiology during DBS and sEEG procedures, acquiring and analyzing MER/iEEG alongside synchronized movement and behavioral data to characterize the neural dynamics underlying movement disorders.",
+                "Develop closed-loop BCI experiments using C++/BCI2000 for real-time neural acquisition and behavioral control, and Python for decoding the high-dimensional neural activity and movement signals to drive adaptive DBS and sEEG stimulation.",
+                "Independently design and build experimental systems for DBS, sEEG, and FUS studies, spanning CAD/3D printing, electronics, neural acquisition/stimulation, and MRI/fMRI/CT analysis."
             ]
         },
         {
